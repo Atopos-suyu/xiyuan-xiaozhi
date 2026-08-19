@@ -137,7 +137,7 @@ body {
   padding: 8px 14px; border-radius: 8px; font-size: 13px;
   z-index: 50; max-width: 80%;
 }
-.hidden { display: none; }
+.hidden { display: none !important; }
 
 /* 弹窗 */
 .modal {
