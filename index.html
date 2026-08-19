@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="锡院小智 · 无锡学院新生AI助手" />
+  <title>锡院小智 · 无锡学院新生AI助手</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo">锡</div>
+      <div>
+        <h1>锡院小智</h1>
+        <p>无锡学院新生AI助手 · 报到 / 学习 / 生活 有问必答</p>
+      </div>
+    </div>
+    <button id="settingsBtn" class="icon-btn" title="设置" aria-label="设置">⚙️</button>
+  </header>
+
+  <main id="chat" class="chat" aria-live="polite">
+    <!-- 欢迎消息由 JS 注入 -->
+  </main>
+
+  <div id="quick" class="quick-questions"></div>
+
+  <footer class="input-bar">
+    <textarea id="input" rows="1" placeholder="请输入你的问题，如：报到流程是什么？" maxlength="2000"></textarea>
+    <button id="sendBtn" class="send-btn" aria-label="发送">发送</button>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-card">
+      <h2>设置</h2>
+      <label for="apiBase">后端 API 地址</label>
+      <input id="apiBase" type="url" placeholder="https://api.example.com" />
+      <p class="hint">默认使用当前页面同源地址（后端托管前端时无需填写）。</p>
+      <div class="modal-actions">
+        <button id="saveBtn" class="primary">保存</button>
+        <button id="cancelBtn">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
