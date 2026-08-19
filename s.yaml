@@ -1,0 +1,54 @@
+# Serverless Devs 配置：阿里云函数计算（自定义容器）
+# 用法见 docs/DEPLOY-ALIYUN.md
+#
+# 部署前设置环境变量：
+#   export DEEPSEEK_API_KEY=sk-xxx
+#   export ACR_IMAGE=registry.cn-shanghai.aliyuncs.com/<你的命名空间>/xiyuan-xiaozhi:v1
+#   s deploy --push-registry <你的ACR镜像地址> --use-local
+edition: 1.0.0
+name: xiyuan-xiaozhi
+access: xiaozhi
+
+services:
+  backend:
+    component: devsapp/fc
+    props:
+      region: cn-shanghai
+      service:
+        name: xiyuan-xiaozhi
+        description: 锡院小智 · 无锡学院新生AI助手后端
+        internetAccess: true
+      function:
+        name: backend
+        runtime: custom-container
+        handler: dummy.handler
+        timeout: 120
+        memorySize: 1024
+        cpu: 1
+        diskSize: 512
+        caPort: 8000
+        customContainerConfig:
+          image: ${env.ACR_IMAGE}
+          command: '["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]'
+        environmentVariables:
+          DEEPSEEK_API_KEY: ${env.DEEPSEEK_API_KEY}
+          DEEPSEEK_BASE_URL: https://api.deepseek.com
+          DEEPSEEK_MODEL: deepseek-chat
+          ALLOWED_ORIGINS: "*"
+          EMBED_DEVICE: cpu
+          HF_HOME: /tmp/hf_home
+          HF_HUB_CACHE: /tmp/hf_home/hub
+      triggers:
+        - type: http
+          name: httpTrigger
+          qualifier: LATEST
+          config:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /*

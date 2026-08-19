@@ -3,7 +3,6 @@
 .venv
 __pycache__
 *.pyc
-data/hf_home
 .env
 backend/scripts/sample_kb
 docs

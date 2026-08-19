@@ -1,12 +1,22 @@
-# Zeabur 一键部署指南（免费）
+# Zeabur 部署指南（⚠️ 已停止推荐）
 
-> 目标：把后端（FastAPI + DeepSeek + RAG）部署到 Zeabur，与 GitHub Pages 前端对接。
-> 全程约 10 分钟，免费额度够用，国内访问相对稳定。
+> ⚠️ **重要更新（2025 起）**：Zeabur 已取消新用户免费额度、转向订阅制，**不再作为本项目免费部署方案**。
+> 本文件仅保留供已有 Zeabur 付费订阅的开发者参考。
 
-## 前置条件
+## 费用现状
 
-- GitHub 账号（已有 ✅）
-- DeepSeek API Key（已有 ✅，在本地 `.env`）
+- Zeabur 个人免费时代已结束，新注册用户需购买订阅（按服务计费）
+- 参考：https://zeabur.com/docs/zh-CN/pricing/pricing-plans
+
+## 推荐替代方案（免费）
+
+- **阿里云函数计算** / **腾讯云 CloudBase**：国内实名账号有免费额度，国内访问最快
+- **本机运行 + 内网穿透**（cpolar）：零成本，适合先演示
+- 详见 `docs/DEPLOY.md` 与 `docs/DEPLOY-FREE.md`
+
+---
+
+## 原部署步骤（供付费用户参考）
 
 ## 一、部署后端
 
