@@ -1,0 +1,23 @@
+# 环境与敏感文件
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 知识库产物（重建即可）
+data/kb/*.sqlite3
+data/kb/*.npy
+
+# embedding 模型缓存
+data/hf_home/
+
+# 日志
+*.log
+nohup.out
+
+# 系统
+.DS_Store

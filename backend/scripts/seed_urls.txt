@@ -1,0 +1,47 @@
+# =====================================================
+# 锡院小智 · 知识库 URL 清单（无锡学院官方渠道）
+# 已校验（2026-08-19）：以下 URL 全部返回 HTTP 200。
+# 原 15 个猜测性二级学院子域（wlw/wlaq/dzxx/ic/zdh/jtcl/hjxy/dqyg/
+# szjj/yjgl/cmys/gjxy/mks/wgy/xsybx）DNS 校验失败，已剔除，待从
+# 官网机构设置页确认真实地址后补充。
+# =====================================================
+
+# --- 学校主页与机构导航 ---
+https://www.cwxu.edu.cn/
+https://www.cwxu.edu.cn/jgsz.htm
+https://www.cwxu.edu.cn/notice_list.jsp?totalpage=181&PAGENUM=50&wbtreeid=1039
+
+# --- 迎新 / 招生 ---
+https://zs.cwxu.edu.cn/
+https://zs.cwxu.edu.cn/info/1002/1660.htm
+https://zs.cwxu.edu.cn/info/1002/1381.htm
+
+# --- 教务 / 学习 ---
+https://jwc.cwxu.edu.cn/
+http://jwgl.cwxu.edu.cn/jwglxt
+https://lw.cwxu.edu.cn/
+
+# --- 学工 / 资助 / 心理 / 宿舍 ---
+https://xgc.cwxu.edu.cn/
+https://xgc.cwxu.edu.cn/index.htm
+
+# --- 后勤 / 一卡通 / 网络 ---
+https://nic.cwxu.edu.cn/
+https://nic.cwxu.edu.cn/yktfw/xykkpbl.htm
+https://www.cwxu.edu.cn/ggfw1/VPN.htm
+https://mail.cwxu.edu.cn
+https://my.cwxu.edu.cn
+
+# --- 图书馆 ---
+https://lib.cwxu.edu.cn/
+
+# --- 财务处 ---
+https://cwc.cwxu.edu.cn/index.htm
+
+# --- 团委 ---
+https://tw.cwxu.edu.cn/index.htm
+
+# --- 研究生 / 继续教育 / 体育 ---
+https://wxyjsy.cwxu.edu.cn/index.htm
+https://yyjsxy.cwxu.edu.cn/
+https://tyb.cwxu.edu.cn/
