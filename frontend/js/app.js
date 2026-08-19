@@ -34,8 +34,35 @@
   const saveBtn = document.getElementById("saveBtn");
   const cancelBtn = document.getElementById("cancelBtn");
 
+  // 弹窗开关：内联样式 + 移除/添加 hidden 类双保险
+  // （.hidden 有 !important，必须移除类才能被内联 display:grid 覆盖）
+  function openModal() {
+    modal.classList.remove("hidden");
+    modal.style.display = "grid";
+  }
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.style.display = "none";
+  }
+
   function getApiBase() {
-    return localStorage.getItem("xiaozhi_api_base") || DEFAULT_API_BASE || "";
+    try {
+      return localStorage.getItem("xiaozhi_api_base") || DEFAULT_API_BASE || "";
+    } catch (e) {
+      return DEFAULT_API_BASE || ""; // 隐私模式/禁用存储时降级
+    }
+  }
+
+  function setApiBase(v) {
+    try {
+      if (v) {
+        localStorage.setItem("xiaozhi_api_base", v);
+      } else {
+        localStorage.removeItem("xiaozhi_api_base");
+      }
+    } catch (e) {
+      /* 存储不可用时仅提示 */
+    }
   }
 
   function apiUrl(path) {
@@ -45,21 +72,27 @@
 
   settingsBtn.addEventListener("click", function () {
     apiBaseInput.value = getApiBase();
-    modal.classList.remove("hidden");
+    openModal();
   });
   saveBtn.addEventListener("click", function () {
     const v = apiBaseInput.value.trim();
+    setApiBase(v);
     if (v) {
-      localStorage.setItem("xiaozhi_api_base", v);
       showToast("已保存，新地址将在下条消息生效");
     } else {
-      localStorage.removeItem("xiaozhi_api_base");
       showToast("已恢复默认同源地址");
     }
-    modal.classList.add("hidden");
+    closeModal();
   });
-  cancelBtn.addEventListener("click", function () {
-    modal.classList.add("hidden");
+  cancelBtn.addEventListener("click", closeModal);
+
+  // 点击遮罩（弹窗空白处）关闭
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeModal();
+  });
+  // ESC 键关闭
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
   });
 
   // ---------- 渲染 ----------
