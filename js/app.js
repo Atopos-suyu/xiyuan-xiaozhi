@@ -2,6 +2,10 @@
 (function () {
   "use strict";
 
+  // 默认后端地址：部署 Zeabur/Render/云服务器后填入，如 "https://xxx.zeabur.app"
+  // 留空 = 使用当前页面同源地址（后端托管前端时）
+  const DEFAULT_API_BASE = "";
+
   const WELCOME = [
     "你好！欢迎来到无锡学院，我是你的专属新生助手'锡院小智'🎉",
     "无论你对报到流程、宿舍生活还是选课有任何疑问，都可以随时问我哦！",
@@ -31,7 +35,7 @@
   const cancelBtn = document.getElementById("cancelBtn");
 
   function getApiBase() {
-    return localStorage.getItem("xiaozhi_api_base") || "";
+    return localStorage.getItem("xiaozhi_api_base") || DEFAULT_API_BASE || "";
   }
 
   function apiUrl(path) {
