@@ -1,0 +1,9 @@
+# Zeabur 配置（可选，Zeabur 也能直接识别根目录 Dockerfile）
+name: xiyuan-xiaozhi
+services:
+  - name: backend
+    type: docker
+    path: .
+    ports:
+      - port: 8000
+        protocol: TCP
